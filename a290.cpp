@@ -59,7 +59,6 @@ void dfs(int s)
 int main(void)
 {
     int N, M, a, b, A, B, i;
-    bool flag;
     char *ans[2] = {"No!!!", "Yes!!!"};
     //freopen("a290.in", "r", stdin);
     while (scanf("%d %d", &N, &M)==2) {
