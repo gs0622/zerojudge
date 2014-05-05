@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 
 typedef union {
     int m[9][9];
