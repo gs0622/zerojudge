@@ -20,10 +20,18 @@ int main(void)
                 bitmap=0;
                 for (k=0;k<3;k++)
                     for (l=0;l<3;l++) bitmap |= 1<<s.c[i][k][j][l];
-                if (bitmap!=0x3fe) {
+                if (bitmap!=0x03fe) {
                     yes=0;
                     break;
                 }
+            }
+        }
+        for (i=0;i<9;i++) {
+            for (j=0;j<9;j++)
+                bitmap |= (1<<s.m[i][j])/*row*/ + (1<<s.m[j][i]<<16)/*col*/;
+            if (bitmap!=0x03fe03fe) {
+                yes=0;
+                break;
             }
         }
         printf("%s\n", yes?"yes":"no");
