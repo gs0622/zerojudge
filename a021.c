@@ -75,6 +75,7 @@ void mul(bignum_t *p, bignum_t *q, bignum_t *r)
     for (i=r->len-1;r->rev[i]==0;i--) r->len--; 
     revdig(r->rev, r->dig, r->len);
 }
+
 void div(bignum_t *p, bignum_t *q, bignum_t *r)
 {
     int i, j, cmp = largethan(p, q);
@@ -98,9 +99,7 @@ void div(bignum_t *p, bignum_t *q, bignum_t *r)
                 minus(&a, &c, &d);
                 r->dig[r->len++]=b.dig[0];
                 a = d;
-#if 0
-                printf("b=%s a=%s r=%s\n", b.dig, a.dig, r->dig);
-#endif
+                /*printf("b=%s a=%s r=%s\n", b.dig, a.dig, r->dig);*/
                 if (0==strcmp(a.dig, "0")) a.dig[0]=0;
                 break;
             }
