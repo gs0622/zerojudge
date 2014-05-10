@@ -49,15 +49,12 @@ int largethan(bignum_t *p, bignum_t *q)
 
 void minus(bignum_t *p, bignum_t *q, bignum_t *r)
 {
-    int i, j, max, cmp = largethan(p, q);
+    int i, max, cmp = largethan(p, q);
+    bignum_t *m, *n;
     r->len = max = (p->len > q->len)? p->len:q->len;
-    for (i=0;i<max;i++) {
-        r->rev[i] += cmp?(p->rev[i] - q->rev[i]):(q->rev[i] - p->rev[i]);
-        if (r->rev[i]<0) { /*borrow*/
-            for (j=i+1; j<max && r->rev[j]!=0; j++) r->rev[j] = 9;
-            r->rev[i]+=10, r->rev[i+1]-=1;
-        }
-    }
+    if (cmp) m=p, n=q; else m=q, n=p;
+    for (i=0;i<max;i++) r->rev[i] += m->rev[i] - n->rev[i];
+    for (i=0;i<max;i++) if (r->rev[i]<0) r->rev[i]+=10, r->rev[i+1]-=1;
     for (i=max-1;i>0&&r->rev[i]==0;i--, r->len--);
     if (cmp) revdig(r->rev, r->dig, r->len);
     else r->dig[0]='-', revdig(r->rev, r->dig+1, r->len);
