@@ -23,14 +23,14 @@ void revdig(int *p, char *q, int len)
 
 void numbering(bignum_t *p)
 {
-    memset(p->rev, 0, 1024);
+    memset(p->rev, 0, 10002);
     p->len=strlen(p->dig), digrev(p->dig, p->rev, p->len);
 }
 
-int largethan(bignum_t *p, bignum_t *q) /* ">" operator*/
+int largethan(bignum_t *p, bignum_t *q) /* ">=" operator*/
 {
     int cmp = (p->len == q->len)? strcmp(p->dig, q->dig) : (p->len - q->len);
-    return cmp = (cmp > 0)? 1:0;
+    return cmp = (cmp >= 0)? 1:0;
 }
 
 void minus(bignum_t *p, bignum_t *q, bignum_t *r)
