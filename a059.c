@@ -8,7 +8,7 @@ int main(void)
 {
     int i, t, tt, a, b, s;
 #if 0
-    freopen("a147.in", "r", stdin);
+    freopen("a059.in", "r", stdin);
 #endif
     while (scanf("%d\n", &t)==1 && t) {
         tt = t;
