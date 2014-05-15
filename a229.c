@@ -4,10 +4,9 @@ int n;
 
 void dfs(int r, int l, char *s)
 {
-    if (l == n)
-        puts(s-2*n);
-    if (r < n) *s = '(', dfs(r+1, l, s+1);
-    if (r > l) *s = ')', dfs(r, l+1, s+1);
+    if (l == n) puts(s-2*n);
+    if (r < n) *s = '(', dfs(r+1, l, s+1); /*not visited*/
+    if (r > l) *s = ')', dfs(r, l+1, s+1); /*not visited*/
 }
 
 int main(void)
