@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 typedef struct { int x; int y; } coo_t;
-coo_t coo[700]/*coordination*/, slo[700]/*sloppe*/, tmp;
+coo_t coo[700]/*coordination*/, slo[700]/*slope*/, tmp;
 
 static int cmp(const void *p, const void *q)
 {
@@ -40,7 +40,6 @@ int main(void)
                 slo[k].x/=l, slo[k].y/=l;
             }
             qsort(slo, k, sizeof(coo_t), cmp);
-            /*for (j=0;j<k;j++) printf("m%d: %d %d\n", j, slo[j].x, slo[j].y);*/
             for (j=1,cnt=1,tmp=slo[0];j<k;j++) {
                 if (tmp.x==slo[j].x && tmp.y==slo[j].y) cnt++;
                 else {
@@ -50,8 +49,7 @@ int main(void)
             }
             if (cnt>max) max=cnt;
         }
-        printf("%d\n", max+1);
-        if (t) puts("");
+        printf("%d\n%s", max+1, (t)?"\n":"");
     }
     return 0;
 }
