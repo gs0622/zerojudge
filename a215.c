@@ -8,7 +8,7 @@ int main(void)
             s+=i;
             if (s > m) break;
         }
-        printf("%d\n", i-n+1    );
+        printf("%d\n", i-n+1);
     }
     return 0;
 }
