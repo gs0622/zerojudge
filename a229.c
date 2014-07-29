@@ -1,3 +1,4 @@
+/*tag: backtracking, dfs*/
 #include <stdio.h>
 
 int n;
